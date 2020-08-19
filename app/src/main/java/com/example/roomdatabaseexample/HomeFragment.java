@@ -31,10 +31,20 @@ public class HomeFragment extends Fragment {
         btn_delete=view.findViewById(R.id.btn_delete_user);
         btn_update=view.findViewById(R.id.btn_update_user);
 
+        // ADD BUTTON
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new AddUserFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
+
+        // READ BUTTON
+        btn_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new ReadUserFragment())
                         .addToBackStack(null).commit();
             }
         });

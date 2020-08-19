@@ -19,7 +19,6 @@ public class AddUserFragment extends Fragment {
     private EditText user_id,user_name,user_email,user_mobile;
     private Button btn_add_user;
 
-    MyAppDatabase myAppDatabase;
 
     public AddUserFragment() {
         // Required empty public constructor
@@ -35,13 +34,6 @@ public class AddUserFragment extends Fragment {
         user_email=view.findViewById(R.id.user_email);
         user_mobile=view.findViewById(R.id.user_mobile);
         btn_add_user=view.findViewById(R.id.btn_add_user);
-
-        try {
-            myAppDatabase = Room.databaseBuilder(getActivity(), MyAppDatabase.class, "userdb").allowMainThreadQueries()
-                    .build();
-        }catch (Exception e){
-            Toast.makeText(getActivity(),e.getMessage().toString(),Toast.LENGTH_LONG).show();
-        }
 
         try {
             btn_add_user.setOnClickListener(new View.OnClickListener() {
@@ -64,14 +56,14 @@ public class AddUserFragment extends Fragment {
                     user.setMobile(usermobile);
 
                     // Saving the data into the database
-                    myAppDatabase.myDao().addUser(user);
+                    MainActivity.myAppDatabase.myDao().addUser(user);
 
-                    Toast.makeText(getActivity(), "User data saved with id :" + userid, Toast.LENGTH_SHORT).show();
+
                     user_id.setText("");
                     user_name.setText("");
                     user_email.setText("");
                     user_mobile.setText("");
-
+                    Toast.makeText(getActivity(), "User data saved with id :" + userid, Toast.LENGTH_LONG).show();
                 }
             });
         }
