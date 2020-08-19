@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,5 +28,9 @@ public interface MyDao {
     // Delete Operation
     @Delete
     public  void deleteUser(User user);
+
+    // Update Operation
+    @Update
+    public void updateUser(User user);
 
 }

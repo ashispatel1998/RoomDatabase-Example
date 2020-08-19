@@ -57,6 +57,16 @@ public class HomeFragment extends Fragment {
                         .addToBackStack(null).commit();
             }
         });
+
+        //UPDATE BUTTON
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new UpdateUserFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
+
         return view;
     }
 
