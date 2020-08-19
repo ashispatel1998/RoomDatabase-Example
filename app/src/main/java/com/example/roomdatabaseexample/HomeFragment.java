@@ -49,6 +49,14 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //DELETE BUTTON
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new DeleteUserFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
         return view;
     }
 
